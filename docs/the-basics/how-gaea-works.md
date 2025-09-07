@@ -1,3 +1,7 @@
+---
+weight: -1
+---
+
 # How Gaea Works 
 
 Gaea uses only 2 nodes (and some more for optional functionality): the **generator** and the **renderer**. Let's start with the **generator**, the most important part:
