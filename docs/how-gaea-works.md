@@ -15,7 +15,3 @@ Learn more about the graph in [Anatomy of a Graph](tutorials/anatomy-of-a-graph.
 ## The Renderer
 
 The `GaeaRenderer` takes what the generator creates, and draws it in the game. Gaea has 2 available already: the `TileMapRenderer` and the `GridMapRenderer`. They use `TileMapMaterial`s and `GridMapMaterial`s respectively, which tell them which tiles in the tileset or which elements in the gridmap to draw on screen.
-
-## Tutorials
-
-Check out the tutorials for specifics on certain nodes and/or functionality!
