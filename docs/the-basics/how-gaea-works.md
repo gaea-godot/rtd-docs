@@ -14,7 +14,7 @@ The graph will already have a node: the output node. For now, this accepts one i
 
 The other data type you should know about is the **data grid**, a grid of numbers used in various different ways across the addon. From noise textures, to paths, and anything else. You can convert these to maps through various nodes, especially the **mapper** nodes. Check them out for a description!
 
-Learn more about the graph in [Anatomy of a Graph](tutorials/anatomy-of-a-graph.md).
+Learn more about the graph in [Anatomy of a Graph](anatomy-of-a-graph.md).
 
 ## The Renderer
 
