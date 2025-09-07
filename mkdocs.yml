@@ -2,6 +2,7 @@ site_name: Gaea Documentation
 theme:
   name: readthedocs
   highlightjs: true
+site_favicon: assets/images/_other/theme/favicon.ico
 plugins:
   - search
   - mkdocstrings:
