@@ -1,6 +1,10 @@
+---
+title: Home
+---
+
 # 🌍 Gaea 2.0
 
-Gaea 2.0 is an **add-on for Godot 4.4**\*, designed to empower your project with advanced **procedural generation** capabilities.
+Gaea 2.0 is an **add-on for Godot 4.4**, designed to empower your project with advanced **procedural generation** capabilities.
 
 !!! note
     Gaea 2.0 is currently in early development, and is NOT ready for bigger projects. It's constantly growing and can have breaking changes every update. Please stay with 1.X if your work is important. Upgrading to 2.0 from 1.X will lose it.
