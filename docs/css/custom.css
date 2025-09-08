@@ -1,0 +1,43 @@
+:root {
+	--content-wrap-background-color: hsl(0, 0%, 94%);
+    	--content-background-color: hsl(0, 0%, 99%);
+	--navbar-background-color: hsl(240, 34%, 30%);
+	--navbar-background-color-hover: hsl(240, 38%, 26%);
+	--navbar-background-color-active: hsl(240, 42%, 22%);
+	--navbar-current-background-color: hsl(240, 42%, 22%);
+	--navbar-current-background-color-hover: hsl(240, 47%, 18%);
+	--navbar-current-background-color-active: hsl(240, 51%, 15%);
+}
+
+@media (prefers-color-scheme: dark) {
+	
+}
+
+
+/* See <https://github.com/godotengine/godot-docs/pull/5876> for context. */
+.rst-content .align-right,
+.rst-content .align-left {
+	clear: both;
+}
+
+@media only screen and (min-width: 769px) {
+    .wy-body-for-nav {
+        /* Center the page on wide displays for better readability */
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .wy-nav-side {
+        /* Required to center the page on wide displays */
+        left: inherit;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .rst-versions {
+        /* Required to center the page on wide displays */
+        left: inherit;
+    }
+}

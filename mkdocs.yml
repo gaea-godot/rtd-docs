@@ -1,8 +1,12 @@
 site_name: Gaea Documentation
+site_url: https://gaea-docs.readthedocs.io
 theme:
-  name: readthedocs
+  name: material
   highlightjs: true
-site_favicon: assets/images/_other/theme/favicon.ico
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
+  flyout_display: attached
+site_favicon: assets/logo.svg
 plugins:
   - search
   - mkdocstrings:
@@ -13,6 +17,6 @@ plugins:
             docstring_style: sphinx
   - mkdocs-nav-weight
 markdown_extensions:
-  - markdown_include.include:
-      base_path: .
-  - admonition
+  - admonition 
+extra_css:
+  - css/custom.css
