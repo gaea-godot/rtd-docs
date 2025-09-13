@@ -1,5 +1,6 @@
 ---
 title: Home
+empty: true
 ---
 
 # 🌍 Gaea 2.0
@@ -17,9 +18,9 @@ Gaea 2.0 is an **add-on for Godot 4.4**, designed to empower your project with a
 
 Gaea uses a graph system to create a flow of customizable nodes for endless posibilities in generation, both 2D and 3D. Creating custom nodes is easy, too, so you aren't limited by what the addon has.
 
-![A graph showing a bunch of interconnected nodes leading to a final output node](/assets/graph-system.png)
+![A graph showing a bunch of interconnected nodes leading to a final output node](assets/graph-system.png)
 
 Gaea 2.0 can generate terrains such as:
 
-![Natural-looking terrain with grass, sand and water](/assets/terrain-showcase.png)
-![Natural-looking cave-like system similar to Nuclear Throne, with chests, cacti and grass](/assets/nuclear-throne-style-showcase.png)
+![Natural-looking terrain with grass, sand and water](assets/terrain-showcase.png)
+![Natural-looking cave-like system similar to Nuclear Throne, with chests, cacti and grass](assets/nuclear-throne-style-showcase.png)
