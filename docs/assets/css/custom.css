@@ -42,13 +42,13 @@
     --content-background-color: #fcfcfc;
     --logo-opacity: 1.0;
 
-    --navbar-background-color: #333f67;
-    --navbar-background-color-hover: #29355c;
-    --navbar-background-color-active: #212d51;
-    --navbar-current-background-color: #212d51;
-    --navbar-current-background-color-hover: #182343;
-    --navbar-current-background-color-active: #131e3b;
-    --navbar-category-active-color: rgba(255 115 129 / 10%);
+    --navbar-background-color: #0d4f5c;
+    --navbar-background-color-hover: #113645;
+    --navbar-background-color-active: #136e6e;
+    --navbar-current-background-color: #0f5a69;
+    --navbar-current-background-color-hover: #113645;
+    --navbar-current-background-color-active: #084551;
+    --navbar-category-active-color: var(--navbar-current-background-color-hover);
     --navbar-current-color: #f1f9ff;
     --navbar-level-1-color: #c3e3ff;
     --navbar-level-2-color: #b8d6f0;
@@ -57,7 +57,7 @@
     --navbar-expand-hover-color: #c3e3ff;
     --navbar-expand-active-color: #f1f9ff;
     --navbar-dimmed-color: #a3c4e1;
-    --navbar-heading-color: #ff7381;
+    --navbar-heading-color: #01b0d5;
     --navbar-scrollbar-color: #d45a66;
     --navbar-scrollbar-hover-color: #b14550;
     --navbar-scrollbar-active-color: #72383e;
@@ -179,7 +179,7 @@
         --navbar-current-background-color: #333639;
         --navbar-current-background-color-hover: #44474a;
         --navbar-current-background-color-active: #222528;
-        --navbar-category-active-color: rgba(238 115 129 / 10%);
+        --navbar-category-active-color: rgba(24, 88, 103, 30%);
         --navbar-current-color: #fefefe;
         --navbar-level-1-color: #ddd;
         --navbar-level-2-color: #ccc;
@@ -188,7 +188,7 @@
         --navbar-expand-hover-color: #ccc;
         --navbar-expand-active-color: #ddd;
         --navbar-dimmed-color: #bbb;
-        --navbar-heading-color: #ee7381;
+        --navbar-heading-color: #00a0d1;
         --navbar-scrollbar-color: #be5460;
         --navbar-scrollbar-hover-color: #963e48;
         --navbar-scrollbar-active-color: #5f3034;
