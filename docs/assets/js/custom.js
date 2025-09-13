@@ -302,9 +302,6 @@ $(document).ready(() => {
     }
   }
 
-  // Activate Highlight.js syntax-highlighter
-  hljs.highlightAll();
-
   // Change indentation from spaces to tabs for codeblocks.
   const codeBlocks = document.querySelectorAll('.rst-content div[class^="highlight"] pre');
   for (const codeBlock of codeBlocks) {
