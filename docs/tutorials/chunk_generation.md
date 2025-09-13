@@ -24,13 +24,13 @@ Gaea comes pre-packaged with multiple different generators, but for this example
 !!! note
     Only certain generators work with chunk loading. These are the `ChunkAwareGenerator`s, such as the noise or heightmap generators. `ChunkAwareGenerator` is an abstract class that you can extend to make your own generators, but shouldn't be used on its own.
 
-![Nodes needed for the Tutorial](/../assets/tutorials/chunk_generation/chunk-generation-loader.png)
+![Nodes needed for the Tutorial](../assets/tutorials/chunk_generation/chunk-generation-loader.png)
 
 ### Setup
 
 Once you have all the pre-requisite nodes mentioned above setup in your scene, you will want to search for the `ChunkLoader2D` node.
 
-![Find the ChunkLoader node in the Node search](/../assets/tutorials/chunk_generation/chunk-loader-2d.png)
+![Find the ChunkLoader node in the Node search](../assets/tutorials/chunk_generation/chunk-loader-2d.png)
 
 After finding this node, you can add it anywhere in the scene tree, in this instance, I've added it as a child node of the `NoiseGenerator`
 
@@ -40,7 +40,7 @@ Once this node has been added to the tree, you need to assign the `Generator` an
 
 ![assign-nodes.gif](../assets/tutorials/chunk_generation/assign-nodes.gif)
 
-![Set the settings' infinite property to true](/../assets/tutorials/chunk_generation/infinite.png)
+![Set the settings' infinite property to true](../assets/tutorials/chunk_generation/infinite.png)
 
 It's also important that you set the settings' `infinite` property to `true`!
 
