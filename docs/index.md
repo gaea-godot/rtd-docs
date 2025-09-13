@@ -2,29 +2,24 @@
 title: Home
 ---
 
-# 🌍 Gaea 1.X
+# 🌍 Gaea 2.0
 
-Gaea 1.X is an **add-on for Godot 4.3***, designed to empower your project with advanced **procedural generation** capabilities.
+Gaea 2.0 is an **add-on for Godot 4.4**, designed to empower your project with advanced **procedural generation** capabilities.
 
-*For 4.2, use v1.1.3 or lower. For 4.0-4.1, use v0.6.2 or lower.
+!!! note
+    Gaea 2.0 is currently in early development, and is NOT ready for bigger projects. It's constantly growing and can have breaking changes every update. Please stay with 1.X if your work is important. Upgrading to 2.0 from 1.X will lose it.
 
-# 💫 Key Features
+### What's in a Name?
 
-## Generators
-Our collection of generators, including Cellular, Heightmap, and Walker, allow for dynamic and unique world creation. Whether you're looking to create intricate cave systems or sprawling landscapes, Gaea's got you covered.
+**Gaea**, in Greek mythology, is the personification of Earth - a nod towards the terrain and world generation capabilities this addon brings to your game development toolkit. Plus, we think it sounds pretty cool.
 
-![generators showcase](/assets/generators-showcase.png)
+# 💫 The Idea
 
-## Modifiers
-Further fine-tune your procedurally generated worlds with our set of modifiers. Add layers of complexity and fine-tune the details to create environments that truly come alive.
+Gaea uses a graph system to create a flow of customizable nodes for endless posibilities in generation, both 2D and 3D. Creating custom nodes is easy, too, so you aren't limited by what the addon has.
 
-## Renderers
-`GaeaRenderers` are nodes that take the generator's data to **render** the generation. They can be used for drawing in a TileMap, a GridMap, a mesh, a texture, or whatever you can code.
+![A graph showing a bunch of interconnected nodes leading to a final output node](/assets/graph-system.png)
 
-## Chunk loading
-Gaea comes with a `ChunkLoader` node that can generate an area around an `actor`, allowing both for infinite worlds and to optimize big worlds. 
+Gaea 2.0 can generate terrains such as:
 
-# Videos
-#### A great tutorial for beginners:
-[![How to Create Procedural Generation in Godot 4](/assets/devworm-thumbnail.jpg)](https://youtu.be/oB1xsCcO9wI "How to Create Procedural Generation in Godot 4")
-[![10+2 AWESOME ADDONS for GODOT 4 by MrElipteach](/assets/mrelipteach-thumbnail.jpg)](https://youtu.be/-FQNPCB7e3s?t=144&si=myv2OsGoLa7jiUfi "10+2 AWESOME ADDONS for GODOT 4 by MrElipteach")
+![Natural-looking terrain with grass, sand and water](/assets/terrain-showcase.png)
+![Natural-looking cave-like system similar to Nuclear Throne, with chests, cacti and grass](/assets/nuclear-throne-style-showcase.png)
