@@ -15,7 +15,7 @@ Now, go to your Project Settings, and under `Gaea/Nodes`, you'll find a setting 
 
 ## Making your First Node
 
-Add a script to your folder which inherits `GaeaNodeResource`. I recommend to give it a `class_name`, let's say `CustomNode`. 
+Add a script to your folder which inherits `GaeaNodeResource`. I recommend giving it a `class_name`, let's say `CustomNode`. 
 
 !!! important
     Your script has to be a [`@tool` script](https://docs.godotengine.org/en/stable/tutorials/plugins/running_code_in_the_editor.html), otherwise it will not work.
@@ -56,33 +56,33 @@ This one's very important. It's where you'll implement the custom functionality 
 
 ### Having Arguments
 
-Great, now you have a node defined. If you go a generator's graph, and click the **Reload create node list** button (![A button with a tree list and a reload icon](../assets/tutorials/node-creation/reload_tree.svg)) in the top left of the panel, you'll see your new node under the category you placed it in, next to all other built-in nodes.
+Great, now you have a node defined. If you go to a generator's graph, and click the **Reload create node list** button (![A button with a tree list and a reload icon](../assets/tutorials/node-creation/reload_tree.svg)) in the top left of the panel, you'll see your new node under the category you placed it in, next to all other built-in nodes.
 
 ![Custom/NodeTitle](../assets/tutorials/node-creation/added_node.png)
 
 You'll notice that when you add it to your graph, it will be sad and empty. This is because of the methods we left unimplemented before. Let's implement them now, starting with arguments.
 
-Let's say we want our node to randomly map each cell of a data grid to 1 of 2 materials, and output that new created map.
+Let's say we want our node to randomly map each cell of a sample grid to 1 of 2 materials, and output that new created map.
 
 We'll need:
 
-- A Data input,
+- A sample input,
 - 2 `GaeaMaterial` inputs,
 - A float between `0.0` to `1.0` that will represent the chance of the first material being selected (otherwise, the second one will be used).
 
-Let's go back to `_get_arguments_list` and make it return `[&"data", &"material_a", &"material_b", &"material_a_chance"]`.
-<br>Now let's go to `_get_argument_type`, and using `match`, return `GaeaValue.Type.DATA` for the first argument, `GaeaValue.Type.MATERIAL` for the next 2, and `GaeaValue.Type.FLOAT` for the last one. Like this:
+Let's go back to `_get_arguments_list` and make it return `[&"sample", &"material_a", &"material_b", &"material_a_chance"]`.
+<br>Now let's go to `_get_argument_type`, and using `match`, return `GaeaValue.Type.SAMPLE` for the first argument, `GaeaValue.Type.MATERIAL` for the next 2, and `GaeaValue.Type.FLOAT` for the last one. Like this:
 
 
 ```
 func _get_arguments_list() -> Array[StringName]:
-	return [&"data", &"material_a", &"material_b", &"material_a_chance"]
+	return [&"sample", &"material_a", &"material_b", &"material_a_chance"]
 
 
 func _get_argument_type(arg_name: StringName) -> GaeaValue.Type:
 	match arg_name:
-		&"data":
-			return GaeaValue.Type.DATA
+		&"sample":
+			return GaeaValue.Type.SAMPLE
 		&"material_a", &"material_b":
 			return GaeaValue.Type.MATERIAL
 		&"material_a_chance":
@@ -143,15 +143,12 @@ This is the code for the node we're making in this tutorial:
 # That's how we represent data of GaeaValue.Type.MAP in the code. 
 func _get_data(_output_port: StringName, area: AABB, graph: GaeaGraph) -> Dictionary[Vector3i, GaeaMaterial]:
 	var grid: Dictionary[Vector3i, GaeaMaterial] = {}
-    # GaeaValue.Type.DATA is Dictionary[Vector3i, float] but Godot sometimes gives errors when typing 
+    # GaeaValue.Type.SAMPLE is Dictionary[Vector3i, float] but Godot sometimes gives errors when typing 
     # this variable as that, so we just use Dictionary.
-	var data: Dictionary = _get_arg(&"data", area, graph) 
+	var sample: Dictionary = _get_arg(&"data", area, graph) 
 	var material_a: GaeaMaterial = _get_arg(&"material_a", area, graph)
 	var material_b: GaeaMaterial = _get_arg(&"material_b", area, graph)
 	var material_a_chance: float = _get_arg(&"material_a_chance", area, graph)
-	# We use _define_rng() for everything related to 
-    # randomness since nodes and generators have their own seed.
-	var rng := define_rng(graph)
 
 	if not is_instance_valid(material_a):
 		_log_error("Invalid material A provided", graph)
@@ -163,19 +160,20 @@ func _get_data(_output_port: StringName, area: AABB, graph: GaeaGraph) -> Dictio
 
     
     # We call execute_sample on materials when using them in a map.
-	for cell in data:
+	for cell in sample:
+        # We use the rng variable for ANY randomnness-related code.
 		if rng.randf() <= material_a_chance:
 			grid.set(
 				cell,
-				material_a.execute_sample(rng, data.get(cell)) 
+				material_a.execute_sample(rng, sample.get(cell)) 
 			)
 		else:
 			grid.set(
 				cell,
-				material_b.execute_sample(rng, data.get(cell))
+				material_b.execute_sample(rng, sample.get(cell))
 			)
 
-	return grid
+    return grid
 ```
 
 Note the code comments, they have useful information on the usage of some methods and variables.
@@ -189,3 +187,72 @@ For other node creation stuff, you can look at the in-editor documentation for `
 You can add a description for example (`_get_description`), or choices (called enums in code) like in `Noise2D`, etc. The possibilities are endless, and if you make an exciting node you can share it to the Gaea repo and we might implement it.
 
 Get making!
+
+
+For reference, the final script looks like this:
+```
+@tool
+class_name CustomNode
+extends GaeaNodeResource
+
+
+func _get_title() -> String:
+	return "CustomNode"
+
+
+func _get_arguments_list() -> Array[StringName]:
+	return [&"sample", &"material_a", &"material_b", &"material_a_chance"]
+
+
+func _get_argument_type(arg_name: StringName) -> GaeaValue.Type:
+	match arg_name:
+		&"sample":
+			return GaeaValue.Type.SAMPLE
+		&"material_a", &"material_b":
+			return GaeaValue.Type.MATERIAL
+		&"material_a_chance":
+			return GaeaValue.Type.FLOAT
+	return GaeaValue.Type.NULL
+
+
+func _get_argument_hint(arg_name: StringName) -> Dictionary[String, Variant]:
+	if arg_name == &"material_a_chance":
+		return {"min": 0.0, "max": 1.0}
+		
+	return super(arg_name)
+
+
+func _get_output_ports_list() -> Array[StringName]:
+	return [&"map"]
+
+
+func _get_output_port_type(_output_name: StringName) -> GaeaValue.Type:
+	return GaeaValue.Type.MAP
+
+
+func _get_data(_output_port: StringName, area: AABB, graph: GaeaGraph) -> Dictionary[Vector3i, GaeaMaterial]:
+	var grid: Dictionary[Vector3i, GaeaMaterial] = {}
+    # GaeaValue.Type.SAMPLE is Dictionary[Vector3i, float] but Godot sometimes gives errors when typing 
+    # this variable as that, so we just use Dictionary.
+	var sample: Dictionary = _get_arg(&"sample", area, graph) 
+	var material_a: GaeaMaterial = _get_arg(&"material_a", area, graph)
+	var material_b: GaeaMaterial = _get_arg(&"material_b", area, graph)
+	var material_a_chance: float = _get_arg(&"material_a_chance", area, graph)
+
+	if not is_instance_valid(material_a):
+		_log_error("Invalid material A provided", graph)
+		return grid
+
+	if not is_instance_valid(material_b):
+		_log_error("Invalid material B provided", graph)
+		return grid
+
+    # We call execute_sample on materials when using them in a map.
+	for cell in sample:
+        # We use the rng variable for ANY randomnness-related code.
+		if rng.randf() <= material_a_chance:
+			grid.set(cell, material_a.execute_sample(rng, sample.get(cell)) )
+		else:
+			grid.set(cell, material_b.execute_sample(rng, sample.get(cell)))
+	return grid
+```
