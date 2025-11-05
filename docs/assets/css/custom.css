@@ -799,12 +799,6 @@ html.writer-html5 .rst-content table.docutils th {
     vertical-align: middle;
 }
 
-.wy-table-odd td,
-.wy-table-striped tr:nth-child(2n-1) td,
-.rst-content table.docutils:not(.field-list) tr:nth-child(2n-1) td {
-    background-color: var(--table-row-odd-background-color);
-}
-
 /* Override table no-wrap */
 /* The first column cells are not verbose, no need to wrap them */
 .wy-table-responsive table td:not(:nth-child(1)),
@@ -1856,4 +1850,42 @@ p + .classref-constant {
     margin: auto 2px;
     border: 0px solid #7fbbe3;
     background: var(--role-button-background-color);
+}
+
+
+.wy-table-responsive:has(> .infobox) {
+    width: 22em;
+    margin-left: 1em;
+    padding: 0.2em;
+    float: right;
+    clear: right;
+    margin-left: auto;
+}
+
+.infobox {
+    width: 100%;
+    display: table;
+    border: 1px solid;
+}
+
+.rst-content .section .docutils {
+    display: table;
+}
+
+.rst-content table.docutils td, .rst-content table.field-list td, .wy-table td {
+    background-color: var(--table-row-odd-background-color);
+}
+
+.rst-content table.docutils:not(.field-list) tr:nth-child(2n-1) td, .wy-table-backed, .wy-table-odd td, .wy-table-striped tr:nth-child(2n-1) td {
+    background-color: var(--table-row-odd-background-color);
+}
+
+table {
+    border: 1px solid var(--code-background-color) !important;
+    border-radius: 6px;
+    border-collapse: separate;
+}
+
+td, th {
+    border: 0px !important;
 }
