@@ -72,6 +72,7 @@
 
     --hr-color: #e1e4e5;
     --table-row-odd-background-color: #f3f6f6;
+    --table-background-color: #d4d4d4;
     --code-background-color: #e9eae5;
     --code-border-color: #e1e4e5;
     --code-literal-color: #c03e41;
@@ -203,6 +204,7 @@
 
         --hr-color: #555;
         --table-row-odd-background-color: #3b3e41;
+	--table-background-color: #23272b;
         --code-background-color: #22252d;
         --code-border-color: #505356;
         --code-literal-color: #d68f8f;
@@ -1887,5 +1889,10 @@ table {
 }
 
 td, th {
-    border: 0px !important;
+    border: 1px solid var(--code-background-color) !important;
+}
+
+
+th {
+    background-color: var(--table-background-color);
 }
