@@ -15,13 +15,14 @@ Slot types are differentiated by their colors:
 
 | Type | Color & Shape | Description | Example |
 | --- | --- | --- | --- |
-| Number | Gray Circle | Can be a `float` or an `int`. | ![FloatVariable node](../assets/tutorials/anatomy-of-a-graph/float_example.png) |
-| Material | Red Diamond | A `GaeaMaterial` resource. Learn more about it in [How Gaea Works](how-gaea-works.md) | ![MaterialVariable node](../assets/tutorials/anatomy-of-a-graph/material_example.png) |
-| Data | White Square | A grid of floats. | ![SimplexSmooth2D node](../assets/tutorials/anatomy-of-a-graph/data_example.png) |
-| Map | Green Tag | A grid of `GaeaMaterial`s. | ![MergeMaps node](../assets/tutorials/anatomy-of-a-graph/map_example.png) | 
-| Range | Pink Ring | A range between one number and another | ![ComposeRange node](../assets/tutorials/anatomy-of-a-graph/range_example.png) |
-| Boolean | Yellow Rounded Square | `true` or `false` | ![BoolConstant node](../assets/tutorials/anatomy-of-a-graph/bool_example.png) |
-| Vector2/3 | Light Blue Triangle/Purple Hourglass | 2/3 numbers: `x`, `y` and `z` | ![Vector2Constant and Vector3Constant nodes](../assets/tutorials/anatomy-of-a-graph/vector_examples.png) |
+| Number | Gray Circle | Can be a `float` or an `int`. | ![FloatConstant node](../assets/nodes/FloatConstant.png) |
+| Material | Red Diamond | A `GaeaMaterial` resource. Learn more about it in [How Gaea Works](how-gaea-works.md) | ![MaterialParameter node](../assets/nodes/MaterialParameter.png) |
+| Sample | White Square | A grid of floats. | ![Noise2D node](../assets/nodes/Noise2d.png) |
+| Map | Green Tag | A grid of `GaeaMaterial`s. | ![MapUnion node](../assets/nodes/MapSetOpUnion.png) | 
+| Range | Pink Ring | A range between one number and another | ![ComposeRange node](../assets/nodes/ComposeRange.png) |
+| Boolean | Yellow Rounded Square | `true` or `false` | ![BoolConstant node](../assets/nodes/BoolConstant.png) |
+| Vector2/3 | Light Blue Triangle/Purple Hourglass | 2/3 numbers: `x`, `y` and `z` | ![Vector2Constant node](../assets/nodes/Vector2Constant.png) ![Vector3Constant node](../assets/nodes/Vector3Constant.png) |
+| Texture | Orange Diamond | A `Texture` resource | ![TextureParameter node](../assets/nodes/Texture2dParameter.png) |
 
 
 # Special Nodes
