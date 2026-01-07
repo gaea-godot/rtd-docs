@@ -11,7 +11,7 @@ category: Sampling > Generation
 
 Generates a floor by using **walkers**, which move around and set cells where they walk to `1.0`, while changing direction and/or spawning new walkers.
 
-!!! note Example
+!!! note "Real Life Example"
     This is how [Nuclear Throne](https://nuclearthrone.com) does its generation, for example, as seen [here](https://web.archive.org/web/20151009004931/https://www.vlambeer.com/2013/04/02/random-level-generation-in-wasteland-kings/).
 
 ## Algorithm
