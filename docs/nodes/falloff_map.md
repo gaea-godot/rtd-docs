@@ -16,10 +16,10 @@ Useful for generating an island-looking terrain when multiplied by the results o
 ## Falloff Shape
 
 Options for falloff shapes include:
-- Square
-- Rounded Square
-- Circle
-- Squircle
+* Square
+* Rounded Square
+* Circle
+* Squircle
 
 ## Start and End
 
