@@ -11,7 +11,8 @@ category: Sampling > Generation
 
 Generates a path that goes from the top of the world to the bottom, flagging the exits from each cell (up, down, left, right).
 
-This is how [Spelunky](https://www.spelunkyworld.com/) generates its level layouts, as seen [here](https://tinysubversions.com/spelunkyGen/).
+!!! note Example
+    This is how [Spelunky](https://www.spelunkyworld.com/) generates its level layouts, as seen [here](https://tinysubversions.com/spelunkyGen/).
 
 ## Algorithm
 
