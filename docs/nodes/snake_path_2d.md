@@ -5,7 +5,7 @@ image: SnakePath2d
 category: Sampling > Generation
 ---
 
-# Snake Path
+# Snake Path 2D
 
 ## Description
 
