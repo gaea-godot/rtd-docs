@@ -1,6 +1,6 @@
 ---
 template: node.html
-image: noise_2d
+image: Noise2d
 type: Sample
 category: Sampling > Noise
 ---

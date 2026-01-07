@@ -1,6 +1,7 @@
 ---
 template: node.html
 type: Sample
+image: FalloffMap
 category: Sampling > Generation
 ---
 

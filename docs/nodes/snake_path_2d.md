@@ -1,6 +1,7 @@
 ---
 template: node.html
 type: Sample
+image: SnakePath2d
 category: Sampling > Generation
 ---
 

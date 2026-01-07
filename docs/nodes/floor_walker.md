@@ -1,10 +1,11 @@
 ---
 template: node.html
 type: Sample
+image: FloorWalker
 category: Sampling > Generation
 ---
 
-# FloorWalker
+# Floor Walker
 
 ## Description
 
