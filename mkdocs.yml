@@ -3,7 +3,6 @@ theme:
   name: readthedocs
   highlightjs: true
   logo: assets/banner.svg
-site_favicon: assets/logo.svg
 plugins:
   - search
   - mkdocstrings:
