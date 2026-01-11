@@ -5,7 +5,7 @@ image: InputAreaEnd
 category: Input
 ---
 
-# Input
+# AreaEnd
 
 ## Description
 

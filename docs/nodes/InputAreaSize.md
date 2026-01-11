@@ -5,7 +5,7 @@ image: InputAreaSize
 category: Input
 ---
 
-# Input
+# AreaSize
 
 ## Description
 

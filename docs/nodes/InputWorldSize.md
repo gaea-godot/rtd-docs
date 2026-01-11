@@ -5,7 +5,7 @@ image: InputWorldSize
 category: Input
 ---
 
-# Input
+# WorldSize
 
 ## Description
 

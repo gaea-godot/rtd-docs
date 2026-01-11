@@ -5,7 +5,7 @@ image: InputAreaPosition
 category: Input
 ---
 
-# Input
+# AreaPosition
 
 ## Description
 
