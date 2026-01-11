@@ -1,0 +1,29 @@
+---
+template: node.html
+type: Vector3
+image: InputAreaEnd
+category: Input
+---
+
+# Input
+
+## Description
+
+Outputs the bottom right corner position of the area being currently generated.
+
+## Enums
+
+### Input
+
+The available inputs, information about generation accessible from this node.
+
+- World Size
+- Area Size
+- Area Position
+- Area End
+
+## Outputs
+
+### Value [Vector3]
+
+Returns the selected value, in this case: the bottom right corner position of the area being currently generated.
