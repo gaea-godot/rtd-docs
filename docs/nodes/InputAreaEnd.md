@@ -24,6 +24,6 @@ The available inputs, information about generation accessible from this node.
 
 ## Outputs
 
-### Value [Vector3]
+### [Vector3](../the-basics/anatomy-of-a-graph.md#slot-types) - `value` (Value)
 
 Returns the selected value, in this case: the bottom right corner position of the area being currently generated.

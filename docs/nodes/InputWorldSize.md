@@ -9,7 +9,7 @@ category: Input
 
 ## Description
 
-Outputs the [param world_size] parameter in the generator's inspector.
+Outputs the [world_size](#arguments) parameter in the generator's inspector.
 
 ## Enums
 
@@ -24,6 +24,6 @@ The available inputs, information about generation accessible from this node.
 
 ## Outputs
 
-### Value [Vector3i]
+### [Vector3i](../the-basics/anatomy-of-a-graph.md#slot-types) - `value` (Value)
 
-Returns the selected value, in this case: the [param world_size] parameter in the generator's inspector.
+Returns the selected value, in this case: the [world_size](#arguments) parameter in the generator's inspector.

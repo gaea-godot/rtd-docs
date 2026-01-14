@@ -12,12 +12,12 @@ category: Conditional > Constants
 `bool` constant.
 
 ## Arguments
-| Type | Name    | Description      | Default |
-|------|---------|------------------|---------|
-| bool | `value` | A bool constant. | false   |
+| Type                                                   | Name (Display Name) | Description      | Default |
+|--------------------------------------------------------|---------|------------------|---------|
+| [bool](../the-basics/anatomy-of-a-graph.md#slot-types) | `value` | A bool constant. | false   |
 
 ## Outputs
 
-### Constant [bool]
+### [bool](../the-basics/anatomy-of-a-graph.md#slot-types) - `constant` (Constant)
 
-Returns [param value].
+Returns [value](#arguments).
