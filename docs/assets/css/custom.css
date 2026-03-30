@@ -72,6 +72,7 @@
 
     --hr-color: #e1e4e5;
     --table-row-odd-background-color: #f3f6f6;
+    --table-background-color: #d4d4d4;
     --code-background-color: #e9eae5;
     --code-border-color: #e1e4e5;
     --code-literal-color: #c03e41;
@@ -203,6 +204,7 @@
 
         --hr-color: #555;
         --table-row-odd-background-color: #3b3e41;
+	--table-background-color: #23272b;
         --code-background-color: #22252d;
         --code-border-color: #505356;
         --code-literal-color: #d68f8f;
@@ -303,6 +305,10 @@ textarea,
 .rst-versions {
     /* Use a system font stack for better performance (no Web fonts required) */
     font-family: var(--system-font-family);
+}
+
+.type-icon {
+    filter: drop-shadow(0px 0px 1px);
 }
 
 h1,
@@ -797,12 +803,6 @@ html.writer-html5 .rst-content table.docutils th {
     border-left: 2px solid var(--code-border-color);
     padding: 8px 16px;
     vertical-align: middle;
-}
-
-.wy-table-odd td,
-.wy-table-striped tr:nth-child(2n-1) td,
-.rst-content table.docutils:not(.field-list) tr:nth-child(2n-1) td {
-    background-color: var(--table-row-odd-background-color);
 }
 
 /* Override table no-wrap */
@@ -1856,4 +1856,47 @@ p + .classref-constant {
     margin: auto 2px;
     border: 0px solid #7fbbe3;
     background: var(--role-button-background-color);
+}
+
+
+.wy-table-responsive:has(> .infobox) {
+    width: 22em;
+    margin-left: 1em;
+    padding: 0.2em;
+    float: right;
+    clear: right;
+    margin-left: auto;
+}
+
+.infobox {
+    width: 100%;
+    display: table;
+    border: 1px solid;
+}
+
+.rst-content .section .docutils {
+    display: table;
+}
+
+.rst-content table.docutils td, .rst-content table.field-list td, .wy-table td {
+    background-color: var(--table-row-odd-background-color);
+}
+
+.rst-content table.docutils:not(.field-list) tr:nth-child(2n-1) td, .wy-table-backed, .wy-table-odd td, .wy-table-striped tr:nth-child(2n-1) td {
+    background-color: var(--table-row-odd-background-color);
+}
+
+table {
+    border: 1px solid var(--code-background-color) !important;
+    border-radius: 6px;
+    border-collapse: separate;
+}
+
+td, th {
+    border: 1px solid var(--code-background-color) !important;
+}
+
+
+th {
+    background-color: var(--table-background-color);
 }
