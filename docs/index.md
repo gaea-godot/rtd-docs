@@ -5,10 +5,10 @@ empty: true
 
 # 🌍 Gaea 2.0
 
-Gaea 2.0 is an **add-on for Godot 4.4**, designed to empower your project with advanced **procedural generation** capabilities.
+Gaea 2.0 is an **add-on for Godot 4.6**, designed to empower your project with advanced **procedural generation** capabilities.
 
 !!! note
-    Gaea 2.0 is currently in early development, and is NOT ready for bigger projects. It's constantly growing and can have breaking changes every update. Please stay with 1.X if your work is important. Upgrading to 2.0 from 1.X will lose it.
+    Gaea 2.0 is currently in early development, and is NOT ready for bigger projects. It's constantly growing and can have breaking changes every update. Please stay with 1.X if your work is important. No migration is possible from version 1.X to version 2.0.
 
 ### What's in a Name?
 
@@ -16,7 +16,7 @@ Gaea 2.0 is an **add-on for Godot 4.4**, designed to empower your project with a
 
 # 💫 The Idea
 
-Gaea uses a graph system to create a flow of customizable nodes for endless posibilities in generation, both 2D and 3D. Creating custom nodes is easy, too, so you aren't limited by what the addon has.
+Gaea uses a graph system to create a flow of customizable nodes for endless possibilities in generation, both 2D and 3D. Creating custom nodes is easy, too, so you aren't limited by what the addon has.
 
 ![A graph showing a bunch of interconnected nodes leading to a final output node](assets/graph-system.png)
 
