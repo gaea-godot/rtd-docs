@@ -19,5 +19,5 @@ pip install -r ./docs/requirements.in
 ```
 3. Serve the documentation locally:
 ```bash
-mkdocs serve
+mkdocs serve --livereload
 ```
