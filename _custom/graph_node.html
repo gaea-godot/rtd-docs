@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <table class="infobox">
+	<theader>
+	<tr>
+	    <th colspan=2> {{ page.title }} </th>
+	</tr>
+	</theader>
+	<tbody>
+	<tr>
+	    <td colspan=2> <img src="../../assets/graph_nodes/{{ page.meta.image if page.meta.image else page.title }}.png"> </td>
+	</tr>
+	<tr>
+	    <th> Type </th>
+	    <td> <img class="type-icon" src="../../assets/types/{{ page.meta.type }}.svg"> {{ page.meta.type }} </td>
+	</tr>
+	<tr>
+	    <th> Category </th>
+	    <td> {{page.meta.category }} </td>
+	</tr>
+	</tbody>
+    </table>
+    {{ page.content }}
+{% endblock %}
