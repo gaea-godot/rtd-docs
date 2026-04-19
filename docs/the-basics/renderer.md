@@ -1,5 +1,5 @@
 ---
-weight: 40
+weight: 61
 ---
 
 # GaeaRenderer
@@ -42,7 +42,7 @@ For example:
 - generated layer `0` (here Ground) renders to `tile_map_layers[0]`
 - generated layer `1` (here Tree) renders to `tile_map_layers[1]`
 
-![renderer layer index](../assets/nodes/renderer-layer-index.png)
+![renderer layer index](../assets/the-basics/renderer-layer-index.png)
 
 !!! info
     Keep the renderer arrays aligned with the graph layer order to avoid rendering data to the wrong target node.

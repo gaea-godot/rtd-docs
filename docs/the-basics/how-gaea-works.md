@@ -18,7 +18,7 @@ The generator node need 3 resources to work: the `GaeaGraph` which contains the 
 
 ![generator node](../assets/the-basics/generator-node.png)
 
-Learn more about the generator in [GaeaGenerator](../nodes/generator.md).
+Learn more about the generator in [GaeaGenerator](generator.md).
 
 ## Renderer
 
@@ -26,4 +26,4 @@ The `GaeaRenderer` takes what the generator creates, and draws it in the game. G
 
 ![renderer node](../assets/the-basics/renderer-node.png)
 
-Learn more about the renderer in [GaeaRenderer](../nodes/renderer.md).
+Learn more about the renderer in [GaeaRenderer](renderer.md).

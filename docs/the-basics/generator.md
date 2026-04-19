@@ -1,5 +1,5 @@
 ---
-weight: 30
+weight: 60
 ---
 
 # GaeaGenerator
@@ -40,7 +40,7 @@ During generation, `GaeaGenerator` processes all enabled layers and combines the
 !!! info
     For better readability in the graph, give each layer a meaningful name with `resource_name`. Each layer appears as an output port on the output node.
 
-    ![generator layer names](../assets/nodes/generator-layer-names.png)
+    ![generator layer names](../assets/the-basics/generator-layer-names.png)
 
 ### Debug options
 
@@ -60,7 +60,7 @@ The generator can produce a preview of the generated world in the Gaea Panel. Th
 
 The image below shows the same graph in 2D game rendering on the left and in the 3D preview on the right. The yellow chests and green vegetation appear in the same positions in both views.
 
-![generator preview](../assets/nodes/generator-preview-side-by-side.png)
+![generator preview](../assets/the-basics/generator-preview-side-by-side.png)
 
 You can configure the preview generation with the following graph properties:
 
@@ -75,7 +75,7 @@ You can configure the preview generation with the following graph properties:
 
 Graphs can expose runtime-editable values through `GaeaNodeParameter` nodes. Multiple parameter types are supported, including `float`, `int`, and `bool`, and they can be used by any graph node that supports parameters. A parameter node only stores a name, and that name becomes the parameter name shown in the graph inspector. You can rename it from the graph node with the pen icon on the right.
 
-![generator parameters](../assets/nodes/generator-parameters.png)
+![generator parameters](../assets/the-basics/generator-parameters.png)
 
 At runtime, you can read and write parameter values directly on the graph:
 
