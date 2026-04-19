@@ -65,7 +65,7 @@ You can add more terrain types by adding more mapper nodes, and merging their ou
 
 ![A graph with more ThresholdMappers for sand and water, of the ranges 0.45-0.5 and 0.0-0.45 respectively. They all connect to a MergeMaps node, which outputs to the Output node](../assets/tutorials/generating-terrain/final-final.png)
 
-...generates this:
+... generates this (The materials have been remplaced by terrain to use some tile variations and automatic tile connections.) :
 
 ![A complete generation with grass, sand and water](../assets/tutorials/generating-terrain/complete-generation.png)
 
