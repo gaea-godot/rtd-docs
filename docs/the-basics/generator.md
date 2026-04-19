@@ -107,7 +107,7 @@ Learn more about the graph itself in [Anatomy of a graph](../the-basics/anatomy-
 - `world_size`: size of the generated area. For 2D worlds, keep `z = 1`.
 
 !!! note
-    For chunk-based or infinite generation, use a chunk loader node instead of relying only on a single static `world_size`. See [Infinite generation](../tutorials/infinite-generation.md) for an example.
+    For chunk-based or infinite generation, use a chunk loader node instead of relying only on a single static `world_size`. See [GaeaChunkLoader](../the-basics/chunk-loader.md) for more details.
 
 ## GaeaTaskPool
 
@@ -136,7 +136,7 @@ In the generate functions you can optionally pass an `origin` argument to priori
 
 When generation starts, the generator queues a `GaeaGenerationTask`, executes the graph, then emits `generation_finished(grid)` when results are ready.
 
-Another way to generate chunks is to use a `GaeaChunkLoader` node, which calls `generate_area()` automatically based on player movement and chunk loading state. See [Infinite generation](../tutorials/infinite-generation.md) for an example.
+Another way to generate chunks is to use a `GaeaChunkLoader` node, which calls `generate_area()` automatically based on player movement and chunk loading state. See [GaeaChunkLoader](../the-basics/chunk-loader.md) for more details.
 
 ## Signals
 

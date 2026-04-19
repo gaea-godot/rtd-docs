@@ -1,3 +1,0 @@
-# Infinite generation
-
-TODO

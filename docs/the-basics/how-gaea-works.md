@@ -12,6 +12,8 @@ The basic setup is to have one generator, one renderer and a Godot node (here th
 
 ![A basic setup of Gaea nodes](../assets/the-basics/basic-setup.png)
 
+You can find a step-by-step tutorial to create this setup in the [Generating Terrain](../tutorials/generating-terrain.md) guide.
+
 ## Generator
 
 The generator node need 3 resources to work: the `GaeaGraph` which contains the graph nodes and connections between them, the `GaeaGenerationSettings` which contains settings for the generator like the seed and the world size, and the `GaeaTaskPool` which contains the thread pool used to run the generator on a separate thread.
