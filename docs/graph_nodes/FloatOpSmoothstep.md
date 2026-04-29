@@ -5,7 +5,7 @@ image: FloatOpSmoothstep
 category: Scalar > Operations
 ---
 
-# Smoothstep (smoothstep(from, to, a))
+# Smoothstep (smoothstep(from, to, A))
 
 ## Description
 
@@ -44,6 +44,6 @@ There is currently no description for the enum #1.
 
 ## Outputs
 
-### [float](../the-basics/anatomy-of-a-graph.md#slot-types) - `result` (smoothstep(from, to, a))
+### [float](../the-basics/anatomy-of-a-graph.md#slot-types) - `result` (smoothstep(from, to, A))
 
 There is currently no description for output `result`.

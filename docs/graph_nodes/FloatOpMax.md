@@ -5,7 +5,7 @@ image: FloatOpMax
 category: Scalar > Operations
 ---
 
-# Max (max(a, b))
+# Max (max(A, b))
 
 ## Description
 
@@ -43,6 +43,6 @@ There is currently no description for the enum #1.
 
 ## Outputs
 
-### [float](../the-basics/anatomy-of-a-graph.md#slot-types) - `result` (max(a, b))
+### [float](../the-basics/anatomy-of-a-graph.md#slot-types) - `result` (max(A, b))
 
 There is currently no description for output `result`.

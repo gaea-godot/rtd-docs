@@ -5,7 +5,7 @@ image: FloatOpFloor
 category: Scalar > Operations
 ---
 
-# Floor (floor(a))
+# Floor (floor(A))
 
 ## Description
 
@@ -42,6 +42,6 @@ There is currently no description for the enum #1.
 
 ## Outputs
 
-### [float](../the-basics/anatomy-of-a-graph.md#slot-types) - `result` (floor(a))
+### [float](../the-basics/anatomy-of-a-graph.md#slot-types) - `result` (floor(A))
 
 There is currently no description for output `result`.

@@ -5,7 +5,7 @@ image: IntOpWrap
 category: Scalar > Operations
 ---
 
-# Wrap (wrap(a, min, max))
+# Wrap (wrap(A, min, max))
 
 ## Description
 
@@ -39,6 +39,6 @@ There is currently no description for the enum #1.
 
 ## Outputs
 
-### [int](../the-basics/anatomy-of-a-graph.md#slot-types) - `result` (wrap(a, min, max))
+### [int](../the-basics/anatomy-of-a-graph.md#slot-types) - `result` (wrap(A, min, max))
 
 There is currently no description for output `result`.

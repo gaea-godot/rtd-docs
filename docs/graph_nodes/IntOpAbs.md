@@ -5,7 +5,7 @@ image: IntOpAbs
 category: Scalar > Operations
 ---
 
-# Abs (abs(a))
+# Abs (abs(A))
 
 ## Description
 
@@ -37,6 +37,6 @@ There is currently no description for the enum #1.
 
 ## Outputs
 
-### [int](../the-basics/anatomy-of-a-graph.md#slot-types) - `result` (abs(a))
+### [int](../the-basics/anatomy-of-a-graph.md#slot-types) - `result` (abs(A))
 
 There is currently no description for output `result`.

@@ -5,7 +5,7 @@ image: FloatOpRound
 category: Scalar > Operations
 ---
 
-# Round (round(a))
+# Round (round(A))
 
 ## Description
 
@@ -42,6 +42,6 @@ There is currently no description for the enum #1.
 
 ## Outputs
 
-### [float](../the-basics/anatomy-of-a-graph.md#slot-types) - `result` (round(a))
+### [float](../the-basics/anatomy-of-a-graph.md#slot-types) - `result` (round(A))
 
 There is currently no description for output `result`.

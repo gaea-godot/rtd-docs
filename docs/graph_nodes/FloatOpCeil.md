@@ -5,7 +5,7 @@ image: FloatOpCeil
 category: Scalar > Operations
 ---
 
-# Ceil (ceil(a))
+# Ceil (ceil(A))
 
 ## Description
 
@@ -42,6 +42,6 @@ There is currently no description for the enum #1.
 
 ## Outputs
 
-### [float](../the-basics/anatomy-of-a-graph.md#slot-types) - `result` (ceil(a))
+### [float](../the-basics/anatomy-of-a-graph.md#slot-types) - `result` (ceil(A))
 
 There is currently no description for output `result`.

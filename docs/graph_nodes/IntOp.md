@@ -38,6 +38,6 @@ There is currently no description for the enum #1.
 
 ## Outputs
 
-### [int](../the-basics/anatomy-of-a-graph.md#slot-types) - `result` (a + b)
+### [int](../the-basics/anatomy-of-a-graph.md#slot-types) - `result` (A + b)
 
 There is currently no description for output `result`.

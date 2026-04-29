@@ -5,7 +5,7 @@ image: FloatOpMin
 category: Scalar > Operations
 ---
 
-# Min (min(a, b))
+# Min (min(A, b))
 
 ## Description
 
@@ -43,6 +43,6 @@ There is currently no description for the enum #1.
 
 ## Outputs
 
-### [float](../the-basics/anatomy-of-a-graph.md#slot-types) - `result` (min(a, b))
+### [float](../the-basics/anatomy-of-a-graph.md#slot-types) - `result` (min(A, b))
 
 There is currently no description for output `result`.

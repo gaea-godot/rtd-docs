@@ -5,7 +5,7 @@ image: IntOpMin
 category: Scalar > Operations
 ---
 
-# Min (min(a, b))
+# Min (min(A, b))
 
 ## Description
 
@@ -38,6 +38,6 @@ There is currently no description for the enum #1.
 
 ## Outputs
 
-### [int](../the-basics/anatomy-of-a-graph.md#slot-types) - `result` (min(a, b))
+### [int](../the-basics/anatomy-of-a-graph.md#slot-types) - `result` (min(A, b))
 
 There is currently no description for output `result`.

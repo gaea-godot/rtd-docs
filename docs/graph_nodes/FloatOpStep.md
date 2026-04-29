@@ -5,7 +5,7 @@ image: FloatOpStep
 category: Scalar > Operations
 ---
 
-# Step (step(a, edge))
+# Step (step(A, edge))
 
 ## Description
 
@@ -43,6 +43,6 @@ There is currently no description for the enum #1.
 
 ## Outputs
 
-### [float](../the-basics/anatomy-of-a-graph.md#slot-types) - `result` (step(a, edge))
+### [float](../the-basics/anatomy-of-a-graph.md#slot-types) - `result` (step(A, edge))
 
 There is currently no description for output `result`.
