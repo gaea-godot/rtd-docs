@@ -22,6 +22,8 @@ Your custom nodes can be placed in the already existing categories by copying th
 
 ## Making your First Node
 
+![A small graph where the custom node has a preview of randomly-placed colors](../assets/tutorials/node-creation/result.png)
+
 ### Node script template
 
 You can copy paste the following code as a template for your first node. It includes all the required methods with their correct signatures.
@@ -71,7 +73,6 @@ You'll probably get errors telling you which methods your script should implemen
     Depending on your version, you should be careful when completing the function definitions with `Tab`, as you might run into a [messy completion](https://github.com/godotengine/godot/pull/108648); if you're in an affected version, you can just type it in manually.
 
 Let's go one-by-one for each method:
-
 
 ### Methods overview
 
@@ -233,6 +234,8 @@ func _on_enum_value_changed(enum_idx: int, option_value: int) -> void:
 
 Arguments are editable parameters that control how the node behaves. They can be numbers, booleans, resources, or other types.
 
+![A node with the previously implemented arguments](../assets/tutorials/node-creation/arguments.png)
+
 To create an argument, you need to override the following methods:
 
 ```
@@ -266,7 +269,6 @@ func _get_argument_description(arg_name: StringName) -> String:
 		return "The size of the generated world."
 	return ""
 ```
-
 
 ```
 # This will be the type of the argument of name arg_name. The type should be one of GaeaValue.Type.
@@ -306,6 +308,8 @@ func _has_input_slot(arg_name: StringName) -> bool:
 #### Outputs
 
 Outputs are the values produced by the node. The output slot type determines what kind of data it produces (for example, a `Noise2D` node has a `Sample` output slot that produces a grid of `float`s).
+
+![The previous graph node but with a green titlebar and a Map output](../assets/tutorials/node-creation/output.png)
 
 To create an output, you need to override the following methods:
 
@@ -355,7 +359,6 @@ func _use_caching(output_port: StringName) -> bool:
 	return output_port == "output_map"
 ```
 
-
 ```
 # This is where you'll implement the functionality of your node.
 # It should return the value corresponding to output_port.
@@ -393,198 +396,10 @@ func _on_argument_value_changed(arg_name: StringName, new_value: Variant) -> voi
 	notify_argument_hint_changed(arg_name)
 ```
 
+### Tips and Tricks
 
-
-
-## TODO
-
-
-
-Method Descriptions
-
-
-
-
-
-```
-func _get_arguments_list() -> Array[StringName]:
-	return [&"sample", &"material_a", &"material_b", &"material_a_chance"]
-
-
-func _get_argument_type(arg_name: StringName) -> GaeaValue.Type:
-	match arg_name:
-		&"sample":
-			return GaeaValue.Type.SAMPLE
-		&"material_a", &"material_b":
-			return GaeaValue.Type.MATERIAL
-		&"material_a_chance":
-			return GaeaValue.Type.FLOAT
-	return GaeaValue.Type.NULL
-```
-
-!!! note
-    You can learn all the available types at [Anatomy of a Graph > Slot Types](../the-basics/anatomy-of-a-graph.md#slot-types)
-
-Now, your node will look like this:
-
-![A node with the previously implemented arguments](../assets/tutorials/node-creation/arguments.png)
-
-Great, but **Material A Chance** should only be a value between `0.0` and `1.0`. Right now, it's not limited to any range. To change this, implement `_get_argument_hint(arg_name: StringName)`. This works similar to property hints in Godot's editor, in that it allows to limit arguments to ranges, change how they work, etc. In this case, we'll return `{"min": 0.0, "max": 1.0}` if the argument is `material_a_chance`, otherwise it'll resort to the default implementation:
-
-```
-func _get_argument_hint(arg_name: StringName) -> Dictionary[String, Variant]:
-	if arg_name == &"material_a_chance":
-		return {"min": 0.0, "max": 1.0}
-		
-	return super(arg_name)
-```
-
-Now, in your graph, that argument will be limited to that range, and will even include a nifty slider.
-
-### *Put* it *Out* There
-
-Now that we have our required arguments, let's implement the node's output. Like with the arguments, override `_get_output_ports_list` and `_get_output_port_type` as needed. In my case:
-
-```
-func _get_output_ports_list() -> Array[StringName]:
-	return [&"map"]
-
-
-func _get_output_port_type(_output_name: StringName) -> GaeaValue.Type:
-	return GaeaValue.Type.MAP
-```
-
-!!! note
-    Notice how I added an underscore `_` to `output_name`, as I don't use it inside the function (since there's only one output).
-
-![The previous graph node but with a green titlebar and a Map output](../assets/tutorials/node-creation/output.png)
-
-
-Your node will be looking nicer now! It has defaulted to using the map type's titlebar color, and now includes a `Map` output with a preview button. Now that it has an output, it's ready to be implemented.
-
-### It's Magic!
-
-Now it's time to write your custom logic in `_get_data`. This method will return what you want your node to output, and you can use logic to change what this means based on the `output_port` function argument.
-
-To get the values of your arguments, you can use `_get_arg(<arg_name>, area, graph)`. If, for example, one of your arguments is invalid (a material isn't connected), you can use `_log_error` to notify the user of the problem.
-
-This is the code for the node we're making in this tutorial:
-
-```
-# Note that I changed the return type to Dictionary[Vector3i, GaeaMaterial]. 
-# That's how we represent data of GaeaValue.Type.MAP in the code. 
-func _get_data(_output_port: StringName, area: AABB, graph: GaeaGraph) -> Dictionary[Vector3i, GaeaMaterial]:
-	var grid: Dictionary[Vector3i, GaeaMaterial] = {}
-    # GaeaValue.Type.SAMPLE is Dictionary[Vector3i, float] but Godot sometimes gives errors when typing 
-    # this variable as that, so we just use Dictionary.
-	var sample: Dictionary = _get_arg(&"sample", area, graph) 
-	var material_a: GaeaMaterial = _get_arg(&"material_a", area, graph)
-	var material_b: GaeaMaterial = _get_arg(&"material_b", area, graph)
-	var material_a_chance: float = _get_arg(&"material_a_chance", area, graph)
-
-	if not is_instance_valid(material_a):
-		_log_error("Invalid material A provided", graph)
-		return grid
-
-	if not is_instance_valid(material_b):
-		_log_error("Invalid material B provided", graph)
-		return grid
-
-    
-    # We call execute_sample on materials when using them in a map.
-	for cell in sample:
-        # We use the rng variable for ANY randomnness-related code.
-		if rng.randf() <= material_a_chance:
-			grid.set(
-				cell,
-				material_a.execute_sample(rng, sample.get(cell)) 
-			)
-		else:
-			grid.set(
-				cell,
-				material_b.execute_sample(rng, sample.get(cell))
-			)
-
-    return grid
-```
-
-Note the code comments, they have useful information on the usage of some methods and variables.
+Take the time to comment your node and use the descriptions virtual method. This will help the future yourself or other developers who work with your node, as they will have useful information on the usage of some methods and variables.
 
 Great! And that's it! You can see the node is working as expected:
 
-![A small graph where the custom node has a preview of randomly-placed colors](../assets/tutorials/node-creation/result.png)
-
-For other node creation stuff, you can look at the in-editor documentation for `GaeaGraphNode` and/or the [code of all built-in nodes](https://github.com/gaea-godot/gaea/tree/2.0/addons/gaea/graph/graph_nodes/root). 
-
-You can add a description for example (`_get_description`), or choices (called enums in code) like in `Noise2D`, etc. The possibilities are endless, and if you make an exciting node you can share it to the Gaea repo and we might implement it.
-
-Get making!
-
-
-For reference, the final script looks like this:
-```
-@tool
-class_name RainNode
-extends GaeaNodeResource
-
-
-func _get_title() -> String:
-	return "RainNode"
-
-
-func _get_arguments_list() -> Array[StringName]:
-	return [&"sample", &"material_a", &"material_b", &"material_a_chance"]
-
-
-func _get_argument_type(arg_name: StringName) -> GaeaValue.Type:
-	match arg_name:
-		&"sample":
-			return GaeaValue.Type.SAMPLE
-		&"material_a", &"material_b":
-			return GaeaValue.Type.MATERIAL
-		&"material_a_chance":
-			return GaeaValue.Type.FLOAT
-	return GaeaValue.Type.NULL
-
-
-func _get_argument_hint(arg_name: StringName) -> Dictionary[String, Variant]:
-	if arg_name == &"material_a_chance":
-		return {"min": 0.0, "max": 1.0}
-		
-	return super(arg_name)
-
-
-func _get_output_ports_list() -> Array[StringName]:
-	return [&"map"]
-
-
-func _get_output_port_type(_output_name: StringName) -> GaeaValue.Type:
-	return GaeaValue.Type.MAP
-
-
-func _get_data(_output_port: StringName, area: AABB, graph: GaeaGraph) -> Dictionary[Vector3i, GaeaMaterial]:
-	var grid: Dictionary[Vector3i, GaeaMaterial] = {}
-    # GaeaValue.Type.SAMPLE is Dictionary[Vector3i, float] but Godot sometimes gives errors when typing 
-    # this variable as that, so we just use Dictionary.
-	var sample: Dictionary = _get_arg(&"sample", area, graph) 
-	var material_a: GaeaMaterial = _get_arg(&"material_a", area, graph)
-	var material_b: GaeaMaterial = _get_arg(&"material_b", area, graph)
-	var material_a_chance: float = _get_arg(&"material_a_chance", area, graph)
-
-	if not is_instance_valid(material_a):
-		_log_error("Invalid material A provided", graph)
-		return grid
-
-	if not is_instance_valid(material_b):
-		_log_error("Invalid material B provided", graph)
-		return grid
-
-    # We call execute_sample on materials when using them in a map.
-	for cell in sample:
-        # We use the rng variable for ANY randomnness-related code.
-		if rng.randf() <= material_a_chance:
-			grid.set(cell, material_a.execute_sample(rng, sample.get(cell)) )
-		else:
-			grid.set(cell, material_b.execute_sample(rng, sample.get(cell)))
-	return grid
-```
+For other node creation stuff, you can look at the in-editor documentation for `GaeaGraphNode` and/or the [code of all built-in nodes](https://github.com/gaea-godot/gaea/tree/2.0/addons/gaea/runtime/graph_nodes/root). 
