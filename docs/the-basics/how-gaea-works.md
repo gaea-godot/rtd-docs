@@ -1,21 +1,31 @@
 ---
-weight: -1
+weight: 20
 ---
 
-# How Gaea Works 
+# How Gaea Works
 
-Gaea uses only 2 nodes (and some more for optional functionality): the **generator** and the **renderer**. Let's start with the **generator**, the most important part:
+Gaea revolves around two core nodes: the **generator** and the **renderer**. The generator creates the data that describes your world, and the renderer turns that data into visuals in-game. This separation lets you use the generator on its own, or connect multiple renderers, for example a `TileMapRenderer` for gameplay and a custom renderer for a GUI preview.
 
-## The Generator
+The easiest way to learn Gaea is to download and explore the demo setups from the [gaea-demos repository](https://github.com/gaea-godot/gaea-demos/tree/2.0).
 
-Adding the `GaeaGenerator` to your scene tree and selecting it will open a panel in the bottom of your editor. Clicking **Add New Resource** will create a `GaeaData` resource. You're now ready to get started! Add nodes to the graph by right clicking. 
+The basic setup is to have one generator, one renderer and a Godot node (here the [TileMapLayer](https://docs.godotengine.org/en/stable/classes/class_tilemaplayer.html) node) for the render.
 
-The graph will already have a node: the output node. For now, this accepts one input: map data for layer 0. The **map data** type consists of a grid where each cell has its own `GaeaMaterial`, telling the `GaeaRenderer` nodes what to draw (we'll get to that in a minute).
+![A basic setup of Gaea nodes](../assets/the-basics/basic-setup.png)
 
-The other data type you should know about is the **data grid**, a grid of numbers used in various different ways across the addon. From noise textures, to paths, and anything else. You can convert these to maps through various nodes, especially the **mapper** nodes. Check them out for a description!
+You can find a step-by-step tutorial to create this setup in the [Generating Terrain](../tutorials/generating-terrain.md) guide.
 
-Learn more about the graph in [Anatomy of a Graph](anatomy-of-a-graph.md).
+## Generator
 
-## The Renderer
+The generator node need 3 resources to work: the `GaeaGraph` which contains the graph nodes and connections between them, the `GaeaGenerationSettings` which contains settings for the generator like the seed and the world size, and the `GaeaTaskPool` which contains the thread pool used to run the generator on a separate thread.
 
-The `GaeaRenderer` takes what the generator creates, and draws it in the game. Gaea has 2 available already: the `TileMapRenderer` and the `GridMapRenderer`. They use `TileMapMaterial`s and `GridMapMaterial`s respectively, which tell them which tiles in the tileset or which elements in the gridmap to draw on screen.
+![generator node](../assets/the-basics/generator-node.png)
+
+Learn more about the generator in [GaeaGenerator](generator.md).
+
+## Renderer
+
+The `GaeaRenderer` takes what the generator creates, and draws it in the game. Gaea has 2 built-in renderers: the `TileMapRenderer` and the `GridMapRenderer`. They use `TileMapMaterial`s and `GridMapMaterial`s respectively, which tell them which tiles in the tileset or which elements in the gridmap to draw on screen.
+
+![renderer node](../assets/the-basics/renderer-node.png)
+
+Learn more about the renderer in [GaeaRenderer](renderer.md).

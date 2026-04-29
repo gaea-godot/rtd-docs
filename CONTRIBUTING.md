@@ -2,12 +2,12 @@
 
 First off, thanks for taking the time to contribute!
 
-
 ## How to contribute
 We welcome contributions to improve our documentation! Here are some ways you can help:
 - **Report Issues**: If you find any errors, typos, or outdated information, please open an issue on our GitHub repository.
 - **Submit Pull Requests**: If you'd like to make changes or add new content, feel free to fork the repository, make your changes, and submit a pull request.
 
+For detailed instructions on contributing to the documentation, please refer to our [Documentation Contribution Guide](https://gaea-docs.readthedocs.io/en/2.x/contributing/documentation/).
 
 ## Testing your changes
 
@@ -19,5 +19,5 @@ pip install -r ./docs/requirements.in
 ```
 3. Serve the documentation locally:
 ```bash
-mkdocs serve
+mkdocs serve --livereload
 ```
